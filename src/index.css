@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,82 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 200 15% 20%;
+    --background: 200 25% 12%;
+    --foreground: 200 15% 95%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 200 15% 20%;
+    --card: 200 20% 16%;
+    --card-foreground: 200 10% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 200 15% 20%;
+    --popover: 200 25% 14%;
+    --popover-foreground: 200 10% 95%;
 
-    --primary: 195 70% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 190 95% 65%;
+    --primary-foreground: 200 25% 10%;
 
-    --secondary: 200 30% 92%;
-    --secondary-foreground: 200 15% 20%;
+    --secondary: 195 40% 35%;
+    --secondary-foreground: 200 10% 95%;
 
-    --muted: 200 20% 95%;
-    --muted-foreground: 200 10% 45%;
+    --muted: 200 20% 20%;
+    --muted-foreground: 200 10% 65%;
 
-    --accent: 195 40% 85%;
-    --accent-foreground: 200 15% 20%;
+    --accent: 185 85% 55%;
+    --accent-foreground: 200 25% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 15% 90%;
-    --input: 200 15% 90%;
-    --ring: 195 70% 45%;
+    --border: 200 25% 25%;
+    --input: 200 20% 22%;
+    --ring: 190 95% 65%;
 
-    --radius: 0.75rem;
+    --radius: 1.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 200 15% 20%;
-    --sidebar-primary: 195 70% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 200 20% 95%;
-    --sidebar-accent-foreground: 200 15% 20%;
-    --sidebar-border: 200 15% 90%;
-    --sidebar-ring: 195 70% 45%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 200 25% 12%;
+    --sidebar-foreground: 200 10% 92%;
+    --sidebar-primary: 190 95% 65%;
+    --sidebar-primary-foreground: 200 25% 10%;
+    --sidebar-accent: 200 20% 20%;
+    --sidebar-accent-foreground: 200 10% 92%;
+    --sidebar-border: 200 25% 25%;
+    --sidebar-ring: 190 95% 65%;
   }
 }
 
@@ -96,73 +58,222 @@
       system-ui,
       -apple-system,
       sans-serif;
+    overflow-x: hidden;
   }
 
   .font-accent {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-elegant {
     font-family: "Cormorant", serif;
   }
 }
 
 @layer utilities {
-  .animate-wave {
-    animation: wave 3s ease-in-out infinite;
+  .water-surface {
+    background: radial-gradient(
+      ellipse at center top,
+      rgba(56, 189, 248, 0.15) 0%,
+      rgba(14, 165, 233, 0.1) 30%,
+      transparent 70%
+    );
+    animation: water-ripple 8s ease-in-out infinite;
   }
 
-  @keyframes wave {
+  @keyframes water-ripple {
     0%,
     100% {
-      transform: translateY(0);
+      transform: scale(1) translateY(0);
+      opacity: 0.6;
     }
     50% {
-      transform: translateY(-10px);
+      transform: scale(1.05) translateY(-10px);
+      opacity: 0.8;
     }
   }
 
-  .hover-lift {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(14, 165, 233, 0.15);
-  }
-
-  .hero-gradient {
+  .ocean-gradient {
     background: linear-gradient(
       180deg,
-      rgba(16, 42, 57, 1) 0%,
-      rgba(20, 55, 74, 1) 50%,
-      rgba(16, 42, 57, 1) 100%
+      #0a1929 0%,
+      #0f2942 15%,
+      #1a3f5c 40%,
+      #0f2942 70%,
+      #0a1929 100%
     );
+    position: relative;
   }
 
-  .text-shimmer {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0.8) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
+  .ocean-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        circle at 20% 30%,
+        rgba(56, 189, 248, 0.08) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 60%,
+        rgba(14, 165, 233, 0.06) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(56, 189, 248, 0.05) 0%,
+        transparent 35%
+      );
+    animation: flow 20s ease-in-out infinite;
   }
 
-  @keyframes shimmer {
-    to {
-      background-position: 200% center;
+  @keyframes flow {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1) rotate(2deg);
     }
   }
 
-  .card-hover {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  .glass-card {
+    background: rgba(26, 63, 92, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .card-hover:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  .glass-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(26, 63, 92, 0.4);
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(56, 189, 248, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glow-text {
+    text-shadow:
+      0 0 20px rgba(56, 189, 248, 0.5),
+      0 0 40px rgba(56, 189, 248, 0.3),
+      0 0 60px rgba(56, 189, 248, 0.2);
+  }
+
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple-effect::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.3) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    animation: ripple 3s ease-out infinite;
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .wave-line {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(56, 189, 248, 0.5) 50%,
+      transparent 100%
+    );
+    height: 2px;
+    animation: wave-flow 3s linear infinite;
+  }
+
+  @keyframes wave-flow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .shimmer-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    animation: shimmer-move 3s infinite;
+  }
+
+  @keyframes shimmer-move {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 200%;
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
